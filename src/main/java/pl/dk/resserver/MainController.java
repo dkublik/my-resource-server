@@ -8,26 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class MainController {
 
-    @GetMapping("/main")
-    String main() {
-        return "Hello World";
-    }
-
-    @GetMapping("/whoami")
-    // @AuthenticationPrincipal(expression="tokenValue")
-    public String whoami(@AuthenticationPrincipal Jwt jwt) {
-
-        System.out.println("-----------");
-        System.out.println(jwt.getId());
-        System.out.println(jwt.getHeaders());
-        System.out.println(jwt.getClaims());
-        System.out.println(jwt.getAudience());
-        System.out.println(jwt.getIssuer());
-        System.out.println(jwt.getExpiresAt());
-        System.out.println(jwt.getIssuedAt());
-        System.out.println(jwt.getSubject());
-        System.out.println(jwt.getTokenValue());
-        System.out.println("-----------");
-        return jwt.getId();
+    @GetMapping("/showJwt")
+    Jwt showJwt(@AuthenticationPrincipal Jwt jwt) {
+        return jwt;
     }
 }
