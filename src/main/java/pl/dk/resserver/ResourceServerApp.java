@@ -23,5 +23,7 @@ public class ResourceServerApp {
 		String token = JwtTokenGenerator.generateToken(UUID.randomUUID().toString(), issuedAt, expirationDate);
 		System.out.println("------- jwt token:");
 		System.out.println(token);
+		System.out.println("-------");
+		System.out.println("curl -H \"Authorization: Bearer " + token + "\" http://localhost:8080/showJwt");
 	}
 }
